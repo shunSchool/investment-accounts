@@ -39,6 +39,8 @@ function mainMenu() {
     hackerAttack();
   } else if (selection === "stats") {
     investmentStats();
+  } else if (selection === "add") {
+    addAccount();
   } else if (selection === "remove-low") {
     removeLow();
   } else if (selection === "robin-hood") {
@@ -80,6 +82,14 @@ function investmentStats() {
   // and the average account amount.
 
   outputEl.innerHTML = "Investment Stats";
+}
+
+function addAccount() {
+  // Prompt for a new account amount and add this to the invesment account
+  // array. Output a confirmation that a new account was added with an
+  // opening amount of _______.
+
+  outputEl.innerHTML = "Add Account";
 }
 
 function removeLow() {
