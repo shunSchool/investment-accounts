@@ -8,6 +8,9 @@ let menuEl = document.getElementById("menu");
 
 // Global Variable
 let accounts = [];
+for (let n = 1; n <=200; n++) {
+  accounts.push(Math.random() * 5000);
+}
 let maxAmount = 5000; // account values should be b/t 0 and max
 
 // Display Data
@@ -56,8 +59,15 @@ function mainMenu() {
 // ******************************************************
 function countRange() {
   // Output the number of accounts with amounts between $2,000 and $4,000, inclusive
-
-  outputEl.innerHTML = "Count Range";
+let count = 0;
+  for (let i = 0; i < accounts.length; i++) {
+  if (accounts[i] >= 2000) {
+    count++;
+  } else if (accounts[i] >4000) {
+    count--;
+    }
+  }
+  outputEl.innerHTML = "Accounts with $2000-$4000 = " + count;
 }
 
 function generousDonor() {
@@ -65,8 +75,14 @@ function generousDonor() {
   // account that has less than $2000. 
   // Modify the investment account array to apply this donation.
   // Output the total amount of money that was donated.
-
-  outputEl.innerHTML = "Generous Donor";
+  let count = 0;
+  for (let i = 0; i < accounts.length; i++) {
+    if (accounts[i] < 2000) {
+      accounts[i] = accounts[i] + 500
+      count = count + 500
+    }
+  }
+  outputEl.innerHTML = `A donor has given $${count} to accounts with less than $2000`;
 }
 
 function hackerAttack() {
@@ -102,8 +118,8 @@ function removeLow() {
 function robinHood() {
   // Steal from the rich and give to the poor.
   // Take $400 from every account that has over $4000.
-  // Then evenly distribute the total amount taken between all the
-  // accounts that have less than $1000.
+  // Then evenly distribute the total amount taken between all the 
+  // accounts that have less than $1000. communism???
   // Output how many accounts received money and 
   // how much each account received.
 
