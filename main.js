@@ -89,15 +89,27 @@ function hackerAttack() {
   // A hacker steals 5% from every account.
   // Modify the investment account array to apply this theft.
   // Output the total amount that was stolen.
+  let totalStolen = 0
+  for (let i = 0; i < accounts.length; i++) {
+    let stolen = accounts[i] * 0.05;
+    accounts[i] = accounts[i] - stolen
+    totalStolen = totalStolen + stolen 
+  }
 
-  outputEl.innerHTML = "Hacker Attack";
+  outputEl.innerHTML = `A hacker has stolen a total of $${totalStolen}!` ;
 }
 
 function investmentStats() {
   // Output the minimum account amount, the maximum account amount
   // and the average account amount.
+  let total = 0;
+  let min = 0
+  for (let i = 0; i < accounts.length; i++) {
+    total = total + accounts[i];
+    
+  }
 
-  outputEl.innerHTML = "Investment Stats";
+  outputEl.innerHTML = `Minimum acc amount = $${Math.min(...a)}.Maximum acc amount = $5000. Average acc amount = $${total}`;
 }
 
 function addAccount() {
