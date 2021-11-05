@@ -106,25 +106,34 @@ function investmentStats() {
   let min = 0
   for (let i = 0; i < accounts.length; i++) {
     total = total + accounts[i];
-    
   }
 
-  outputEl.innerHTML = `Minimum acc amount = $${Math.min(...a)}.Maximum acc amount = $5000. Average acc amount = $${total}`;
+  outputEl.innerHTML = `Minimum acc amount = $${Math.min(...accounts)}.Maximum acc amount = $${Math.max(...accounts)}. Average acc amount = $${total/200}`;
 }
 
 function addAccount() {
   // Prompt for a new account amount and add this to the invesment account
   // array. Output a confirmation that a new account was added with an
   // opening amount of _______.
-
-  outputEl.innerHTML = "Add Account";
+let newAmount = +prompt("Add account")
+accounts.push(newAmount)
+  outputEl.innerHTML = `A new account with $${newAmount} has been added.`;
 }
 
 function removeLow() {
   // Remove all accounts that are below $500.
   // Output how many accounts were removed.
-
-  outputEl.innerHTML = "Remove Low Accounts";
+  let count = 0
+  for (let q = 0; q < accounts.length; q++)
+  for (let i = 0; i < accounts.length; i++) {
+    if (accounts[i] < 500) {
+      accounts.splice(i, 1);
+      count++
+    } else if(accounts[q] < 500) {
+      accounts.splice(q, 1)
+    }
+  }
+  outputEl.innerHTML = `${count} Accounts shave been removed`;
 }
 
 function robinHood() {
