@@ -143,6 +143,26 @@ function robinHood() {
   // accounts that have less than $1000. communism???
   // Output how many accounts received money and 
   // how much each account received.
+let totalStolen = 0
+  let brokeDudes = 0
+  
+  // 1: Steal and count poor people
+  for (let i = 0; i < accounts.length; i++){
+    if (accounts[i] > 4000) {
+      accounts[i] = accounts[i] - 400
+      totalStolen = totalStolen + 400
+    } else if (accounts[i] < 1000) {
+      brokeDudes++
+    } 
+  }
 
-  outputEl.innerHTML = "Robin Hood";
+  // 2: Calculate how much to give to broke dudes
+  let distribution = totalStolen / brokeDudes
+  // 3: Give money to the broke dudes
+  for (let i = 0; i < accounts.length; i++){
+    if (accounts[i] < 1000) {
+      accounts[i] += distribution
+    }
+  } 
+  outputEl.innerHTML = `A thief has taken $400 from each high value account and gave $${distribution} to ${brokeDudes} lower accounts`;
 }
